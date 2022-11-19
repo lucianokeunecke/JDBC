@@ -12,7 +12,7 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 	}
 	
 	@Override
-	public Boolean salvar(Cliente cliente) {
+	public Boolean incluir(Cliente cliente) {
 		String sql = "insert into cliente(nome, codigo) values (?,null)";
 		try {
 			pstm = con.prepareStatement(sql);
@@ -26,7 +26,7 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 	
 	
 	@Override
-	public Boolean atualizar(Cliente cliente) {
+	public Boolean alterar(Cliente cliente) {
 		String sql = "update cliente set nome = ? where codigo = ?";
 		try {
 			pstm = con.prepareStatement(sql);
@@ -40,7 +40,7 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 	}
 	
 	@Override
-	public Boolean deletar(Cliente cliente) {
+	public Boolean excluir(Cliente cliente) {
 		String sql = "delete from cliente where codigo = ?";
 		try {
 			pstm = con.prepareStatement(sql);
@@ -55,7 +55,7 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 	
 
 	@Override
-	public Cliente obter(Long codigo){
+	public Cliente listarPeloId(Long codigo){
 		String sql = "select * from cliente where codigo = ?";
 		Cliente cliente = new Cliente();
 		try {

@@ -13,25 +13,25 @@ import br.edu.infnet.pedido.model.entidade.Produto;
 public class PedidoDAO extends JdbcDAO<Pedido>{
 
 	@Override
-	public Boolean salvar(Pedido obj) {
+	public Boolean incluir(Pedido obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Boolean atualizar(Pedido obj) {
+	public Boolean alterar(Pedido obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Boolean deletar(Pedido obj) {
+	public Boolean excluir(Pedido obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Cliente obter(Long codigo) {
+	public Cliente listarPeloId(Long codigo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -12,7 +12,7 @@ create table cliente(
 create table fornecedor(
 id int not null primary key auto_increment,
 nome varchar(100),
-cnpj_cpf int,
+cnpj_cpf varchar(18),
 endereco varchar(100),
 numero_endereco int,
 complemento_endereco varchar(30),

@@ -15,7 +15,7 @@ public class ClienteDAOTest {
 	public void inicializar() {
 		IDAO clienteDAO = new ClienteDAO();
 		Cliente cliente = new Cliente("Jose das Couves"); 
-		clienteDAO.salvar(cliente);
+		clienteDAO.incluir(cliente);
 	}
 	
 	
@@ -23,7 +23,7 @@ public class ClienteDAOTest {
 	public void test() {
 		IDAO clienteDAO = new ClienteDAO();
 		Cliente cliente = new Cliente("Jose das Couves"); 
-		boolean validacao = clienteDAO.salvar(cliente);
+		boolean validacao = clienteDAO.incluir(cliente);
 		Assert.assertTrue(validacao);
 	}
 	
@@ -33,7 +33,7 @@ public class ClienteDAOTest {
 		IDAO clienteDAO = new ClienteDAO();
 		List<Cliente> lista = clienteDAO.listarTodos();
 		Cliente cliente = new Cliente("Maria das Couves", lista.get(0).getCodigo()); 
-		boolean validacao = clienteDAO.atualizar(cliente);
+		boolean validacao = clienteDAO.alterar(cliente);
 		Assert.assertTrue(validacao);
 	}
 	
@@ -42,7 +42,7 @@ public class ClienteDAOTest {
 		IDAO clienteDAO = new ClienteDAO();
 		List<Cliente> lista = clienteDAO.listarTodos();
 		Cliente cliente = new Cliente("Maria das Couves", lista.get(lista.size()-1).getCodigo()); 
-		boolean validacao = clienteDAO.deletar(cliente);
+		boolean validacao = clienteDAO.excluir(cliente);
 		Assert.assertTrue(validacao);
 	}
 	
@@ -59,7 +59,7 @@ public class ClienteDAOTest {
 	public void testObterCliente() {
 		IDAO clienteDAO = new ClienteDAO();
 		List<Cliente> lista = clienteDAO.listarTodos();
-		Cliente cliente = clienteDAO.obter(lista.get(0).getCodigo());
+		Cliente cliente = clienteDAO.listarPeloId(lista.get(0).getCodigo());
 		Assert.assertNotNull(cliente);;
 	}
 	

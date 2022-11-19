@@ -10,19 +10,19 @@ public class FornecedorDAO extends JdbcDAO<Fornecedor> {
 
 
     @Override
-    public Boolean salvar(Fornecedor fornecedor) {
+    public Boolean incluir(Fornecedor fornecedor) {
 
-        String sql = "insert into fornecedor(nome, endereco, numero_endereco, complemento_endereco, bairro, numero_cep, nome_cidade, id) values (?, ?, ?, ?, ?, ?, ?, null)";
+        String sql = "insert into fornecedor(nome, cnpj_cpf, endereco, numero_endereco, complemento_endereco, bairro, numero_cep, nome_cidade, id) values (?, ?, ?, ?, ?, ?, ?, ?, null)";
         try {
             pstm = con.prepareStatement(sql);
             pstm.setString(1, fornecedor.getNome());
-            //pstm.setLong(2, fornecedor.getCnpjCpf());
-            pstm.setString(2, fornecedor.getEndereco());
-            pstm.setLong(3, fornecedor.getNumeroEndereco());
-            pstm.setString(4, fornecedor.getComplementoEndereco());
-            pstm.setString(5, fornecedor.getBairro());
-            pstm.setLong(6, fornecedor.getNumeroCep());
-            pstm.setString(7, fornecedor.getNomeCidade());
+            pstm.setString(2, fornecedor.getCnpjCpf());
+            pstm.setString(3, fornecedor.getEndereco());
+            pstm.setLong(4, fornecedor.getNumeroEndereco());
+            pstm.setString(5, fornecedor.getComplementoEndereco());
+            pstm.setString(6, fornecedor.getBairro());
+            pstm.setLong(7, fornecedor.getNumeroCep());
+            pstm.setString(8, fornecedor.getNomeCidade());
             return pstm.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -31,17 +31,17 @@ public class FornecedorDAO extends JdbcDAO<Fornecedor> {
     }
 
     @Override
-    public Boolean atualizar(Fornecedor obj) {
+    public Boolean alterar(Fornecedor obj) {
         return null;
     }
 
     @Override
-    public Boolean deletar(Fornecedor obj) {
+    public Boolean excluir(Fornecedor obj) {
         return null;
     }
 
     @Override
-    public Cliente obter(Long codigo) {
+    public Cliente listarPeloId(Long codigo) {
         return null;
     }
 

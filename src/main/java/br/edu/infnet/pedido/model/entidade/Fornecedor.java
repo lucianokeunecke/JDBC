@@ -4,7 +4,7 @@ public class Fornecedor {
 
     private long id;
     private String nome;
-    private long cnpjCpf;
+    private String cnpjCpf;
     private String endereco;
     private long numeroEndereco;
     private String complementoEndereco;
@@ -12,7 +12,7 @@ public class Fornecedor {
     private long numeroCep;
     private String nomeCidade;
 
-    public Fornecedor(String nome, long cnpjCpf, String endereco, long numeroEndereco, String complementoEndereco, String bairro, long numeroCep, String nomeCidade) {
+    public Fornecedor(String nome, String cnpjCpf, String endereco, long numeroEndereco, String complementoEndereco, String bairro, long numeroCep, String nomeCidade) {
         this.nome = nome;
         this.cnpjCpf = cnpjCpf;
         this.endereco = endereco;
@@ -31,7 +31,7 @@ public class Fornecedor {
         return nome;
     }
 
-    public long getCnpjCpf() {
+    public String getCnpjCpf() {
         return cnpjCpf;
     }
 
