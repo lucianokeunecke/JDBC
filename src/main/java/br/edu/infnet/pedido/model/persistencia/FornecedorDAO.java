@@ -4,6 +4,7 @@ import br.edu.infnet.pedido.model.entidade.Cliente;
 import br.edu.infnet.pedido.model.entidade.Fornecedor;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FornecedorDAO extends JdbcDAO<Fornecedor> {
@@ -63,6 +64,27 @@ public class FornecedorDAO extends JdbcDAO<Fornecedor> {
 
     @Override
     public List<Fornecedor> listarTodos() {
+        String sql = "select * from fornecedor";
+        List<Fornecedor> listaFornecedores = new ArrayList<>();
+        try {
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            while(rs.next()) {
+                Fornecedor fornecedor = new Fornecedor(rs.getLong("id"),
+                                                       rs.getString("nome"),
+                                                       rs.getString("cnpj_cpf"),
+                                                       rs.getString("endereco"),
+                                                       rs.getLong("numero_endereco"),
+                                                       rs.getString("complemento_endereco"),
+                                                       rs.getString("bairro"),
+                                                       rs.getLong("numero_cep"),
+                                                       rs.getString("nome_cidade"));
+                listaFornecedores.add(fornecedor);
+            }
+            return listaFornecedores;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
