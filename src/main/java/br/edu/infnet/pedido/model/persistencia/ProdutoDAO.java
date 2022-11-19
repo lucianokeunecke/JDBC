@@ -26,7 +26,7 @@ public class ProdutoDAO extends JdbcDAO<Produto> {
 	}
 
 	@Override
-	public Produto listarPeloId(Long id) {
+	public Produto buscarPeloId(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -2,8 +2,6 @@ package br.edu.infnet.pedido.model.persistencia;
 
 import java.util.List;
 
-import br.edu.infnet.pedido.model.entidade.Cliente;
-
 public interface IDAO<T> {
 
 	Boolean incluir(T obj);
@@ -12,7 +10,7 @@ public interface IDAO<T> {
 
 	Boolean excluir(Long id);
 
-	T listarPeloId(Long id);
+	T buscarPeloId(Long id);
 
 	List<T> listarTodos();
 

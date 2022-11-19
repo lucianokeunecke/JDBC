@@ -31,7 +31,7 @@ public class PedidoDAO extends JdbcDAO<Pedido>{
 	}
 
 	@Override
-	public Pedido listarPeloId(Long id) {
+	public Pedido buscarPeloId(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

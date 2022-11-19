@@ -8,7 +8,6 @@ import org.junit.Test;
 import java.util.List;
 
 public class FornecedorDAOTest {
-
 	
 	@Before
 	public void inicializar() {
@@ -26,7 +25,6 @@ public class FornecedorDAOTest {
 		fornecedorDAO.incluir(fornecedor);
 	}
 	
-	
 	@Test
 	public void testIncluir() {
 		IDAO fornecedorDAO = new FornecedorDAO();
@@ -34,7 +32,6 @@ public class FornecedorDAOTest {
 		boolean validacao = fornecedorDAO.incluir(fornecedor);
 		Assert.assertTrue(validacao);
 	}
-	
 	
 	@Test
 	public void testAlterar() {
@@ -53,9 +50,8 @@ public class FornecedorDAOTest {
 		Assert.assertTrue(validacao);
 	}
 	
-	
 	@Test
-	public void testListarFornecedores() {
+	public void testListarTodosFornecedores() {
 		IDAO fornecedorDAO = new FornecedorDAO();
 		List<Fornecedor> lista = fornecedorDAO.listarTodos();
 
@@ -63,13 +59,12 @@ public class FornecedorDAOTest {
 
 		Assert.assertTrue(lista.size() > 0);
 	}
-	
 
 	@Test
-	public void testObterFornecedor() {
+	public void testListarFornecedorPeloId() {
 		IDAO fornecedorDAO = new FornecedorDAO();
 		List<Fornecedor> lista = fornecedorDAO.listarTodos();
-		Object fornecedor = fornecedorDAO.listarPeloId(lista.get(0).getId());
+		Object fornecedor = fornecedorDAO.buscarPeloId(lista.get(0).getId());
 		Assert.assertNotNull(fornecedor);
 	}
 

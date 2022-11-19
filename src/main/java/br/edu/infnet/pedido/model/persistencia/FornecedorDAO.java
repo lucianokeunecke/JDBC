@@ -8,7 +8,6 @@ import java.util.List;
 
 public class FornecedorDAO extends JdbcDAO<Fornecedor> {
 
-
     @Override
     public Boolean incluir(Fornecedor fornecedor) {
 
@@ -65,7 +64,7 @@ public class FornecedorDAO extends JdbcDAO<Fornecedor> {
     }
 
     @Override
-    public Fornecedor listarPeloId(Long id) {
+    public Fornecedor buscarPeloId(Long id) {
         String sql = "select * from fornecedor where id = ?";
         Fornecedor fornecedor = new Fornecedor();
         try {

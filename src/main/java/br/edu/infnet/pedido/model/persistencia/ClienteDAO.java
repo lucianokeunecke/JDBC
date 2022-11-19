@@ -55,7 +55,7 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 	
 
 	@Override
-	public Cliente listarPeloId(Long id){
+	public Cliente buscarPeloId(Long id){
 		String sql = "select * from cliente where codigo = ?";
 		Cliente cliente = new Cliente();
 		try {
