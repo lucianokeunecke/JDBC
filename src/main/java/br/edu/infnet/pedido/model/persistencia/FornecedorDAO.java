@@ -12,18 +12,17 @@ public class FornecedorDAO extends JdbcDAO<Fornecedor> {
     @Override
     public Boolean salvar(Fornecedor fornecedor) {
 
-        //String sql = "insert into fornecedor(id, nome, cnpj_cpf, endereco, numero_endereco, complemento_endereco, bairro, numero_cep, nome_cidade) values (null, ?, ?, ?, ?, ?, ?, ?, ?)";
-        String sql = "insert into fornecedor(nome, id) values (?, null)";
+        String sql = "insert into fornecedor(nome, endereco, numero_endereco, complemento_endereco, bairro, numero_cep, nome_cidade, id) values (?, ?, ?, ?, ?, ?, ?, null)";
         try {
             pstm = con.prepareStatement(sql);
             pstm.setString(1, fornecedor.getNome());
-            /*pstm.setLong(3, fornecedor.getCnpjCpf());
-            pstm.setString(4, fornecedor.getEndereco());
-            pstm.setLong(5, fornecedor.getNumeroEndereco());
-            pstm.setString(6, fornecedor.getComplementoEndereco());
-            pstm.setString(7, fornecedor.getBairro());
-            pstm.setLong(8, fornecedor.getNumeroCep());
-            pstm.setString(9, fornecedor.getNomeCidade());*/
+            //pstm.setLong(2, fornecedor.getCnpjCpf());
+            pstm.setString(2, fornecedor.getEndereco());
+            pstm.setLong(3, fornecedor.getNumeroEndereco());
+            pstm.setString(4, fornecedor.getComplementoEndereco());
+            pstm.setString(5, fornecedor.getBairro());
+            pstm.setLong(6, fornecedor.getNumeroCep());
+            pstm.setString(7, fornecedor.getNomeCidade());
             return pstm.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

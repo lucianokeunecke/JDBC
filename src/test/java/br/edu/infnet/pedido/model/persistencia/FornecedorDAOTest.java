@@ -22,7 +22,7 @@ public class FornecedorDAOTest {
 	@Test
 	public void test() {
 		IDAO fornecedorDAO = new FornecedorDAO();
-		Fornecedor fornecedor = new Fornecedor("Adriana Konell", 3189734992L, "Rua Max Weise", 290, "BL 28 AP 31", "Água Verde", 89032280, "Blumenau");
+		Fornecedor fornecedor = new Fornecedor("Adriana Konell", 7551423910L, "Rua Max Weise", 290, "BL 28 AP 31", "Água Verde", 89032280, "Blumenau");
 		boolean validacao = fornecedorDAO.salvar(fornecedor);
 		Assert.assertTrue(validacao);
 	}
