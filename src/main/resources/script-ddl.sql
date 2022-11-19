@@ -9,6 +9,18 @@ create table cliente(
 	nome varchar(80)
 );
 
+create table fornecedor(
+id int not null primary key auto_increment,
+nome varchar(100),
+cnpj_cpf int,
+endereco varchar(100),
+numero_endereco int,
+complemento_endereco varchar(30),
+bairro varchar(60),
+numero_cep int,
+nome_cidade varchar(100)
+);
+
 select * from cliente;
 
 create table produto(
