@@ -54,21 +54,23 @@ public class FornecedorDAOTest {
 	}
 	
 	
-	/*@Test
-	public void testListaClientes() {
-		IDAO clienteDAO = new ClienteDAO();
-		List<Cliente> lista = clienteDAO.listarTodos();
+	@Test
+	public void testListarFornecedores() {
+		IDAO fornecedorDAO = new FornecedorDAO();
+		List<Fornecedor> lista = fornecedorDAO.listarTodos();
+
+		System.out.println("Quantidade de fornecedores cadastrados: " + lista.size());
+
 		Assert.assertTrue(lista.size() > 0);
 	}
 	
 
 	@Test
-	public void testObterCliente() {
-		IDAO clienteDAO = new ClienteDAO();
-		List<Cliente> lista = clienteDAO.listarTodos();
-		Cliente cliente = clienteDAO.obter(lista.get(0).getCodigo());
-		Assert.assertNotNull(cliente);;
-	}*/
-	
+	public void testObterFornecedor() {
+		IDAO fornecedorDAO = new FornecedorDAO();
+		List<Fornecedor> lista = fornecedorDAO.listarTodos();
+		Object fornecedor = fornecedorDAO.listarPeloId(lista.get(0).getId());
+		Assert.assertNotNull(fornecedor);
+	}
 
 }

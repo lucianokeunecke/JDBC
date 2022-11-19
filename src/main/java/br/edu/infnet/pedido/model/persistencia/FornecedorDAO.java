@@ -73,8 +73,6 @@ public class FornecedorDAO extends JdbcDAO<Fornecedor> {
             pstm.setLong(1, id);
             rs = pstm.executeQuery();
             if(rs.next()) {
-                String nome = rs.getString("nome");
-                Long codigoDB = rs.getLong("codigo");
                 fornecedor = new Fornecedor(rs.getLong("id"),
                                             rs.getString("nome"),
                                             rs.getString("cnpj_cpf"),
