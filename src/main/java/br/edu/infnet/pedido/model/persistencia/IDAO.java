@@ -10,9 +10,9 @@ public interface IDAO<T> {
 
 	Boolean alterar(T obj);
 
-	Boolean excluir(T obj);
+	Boolean excluir(Long id);
 
-	Cliente listarPeloId(Long codigo);
+	T listarPeloId(Long id);
 
 	List<T> listarTodos();
 

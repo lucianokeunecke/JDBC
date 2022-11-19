@@ -20,13 +20,13 @@ public class ProdutoDAO extends JdbcDAO<Produto> {
 	}
 
 	@Override
-	public Boolean excluir(Produto obj) {
+	public Boolean excluir(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Cliente listarPeloId(Long codigo) {
+	public Produto listarPeloId(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

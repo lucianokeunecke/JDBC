@@ -1,6 +1,5 @@
 package br.edu.infnet.pedido.model.persistencia;
 
-import br.edu.infnet.pedido.model.entidade.Cliente;
 import br.edu.infnet.pedido.model.entidade.Fornecedor;
 
 import java.sql.SQLException;
@@ -53,12 +52,43 @@ public class FornecedorDAO extends JdbcDAO<Fornecedor> {
     }
 
     @Override
-    public Boolean excluir(Fornecedor obj) {
-        return null;
+    public Boolean excluir(Long id) {
+        String sql = "delete from fornecedor where id = ?";
+        try {
+            pstm = con.prepareStatement(sql);
+            pstm.setLong(1, id);
+            return pstm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
-    public Cliente listarPeloId(Long codigo) {
+    public Fornecedor listarPeloId(Long id) {
+        String sql = "select * from fornecedor where id = ?";
+        Fornecedor fornecedor = new Fornecedor();
+        try {
+            pstm = con.prepareStatement(sql);
+            pstm.setLong(1, id);
+            rs = pstm.executeQuery();
+            if(rs.next()) {
+                String nome = rs.getString("nome");
+                Long codigoDB = rs.getLong("codigo");
+                fornecedor = new Fornecedor(rs.getLong("id"),
+                                            rs.getString("nome"),
+                                            rs.getString("cnpj_cpf"),
+                                            rs.getString("endereco"),
+                                            rs.getLong("numero_endereco"),
+                                            rs.getString("complemento_endereco"),
+                                            rs.getString("bairro"),
+                                            rs.getLong("numero_cep"),
+                                            rs.getString("nome_cidade"));
+            }
+            return fornecedor;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

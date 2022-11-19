@@ -25,13 +25,13 @@ public class PedidoDAO extends JdbcDAO<Pedido>{
 	}
 
 	@Override
-	public Boolean excluir(Pedido obj) {
+	public Boolean excluir(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Cliente listarPeloId(Long codigo) {
+	public Pedido listarPeloId(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

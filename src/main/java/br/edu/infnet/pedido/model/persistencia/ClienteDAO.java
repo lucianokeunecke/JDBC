@@ -40,11 +40,11 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 	}
 	
 	@Override
-	public Boolean excluir(Cliente cliente) {
+	public Boolean excluir(Long id) {
 		String sql = "delete from cliente where codigo = ?";
 		try {
 			pstm = con.prepareStatement(sql);
-			pstm.setLong(1, cliente.getCodigo()); 
+			pstm.setLong(1, id);
 			return pstm.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -55,12 +55,12 @@ public class ClienteDAO extends JdbcDAO<Cliente>  {
 	
 
 	@Override
-	public Cliente listarPeloId(Long codigo){
+	public Cliente listarPeloId(Long id){
 		String sql = "select * from cliente where codigo = ?";
 		Cliente cliente = new Cliente();
 		try {
 			pstm = con.prepareStatement(sql); 
-			pstm.setLong(1, codigo); 
+			pstm.setLong(1, id);
 			rs = pstm.executeQuery();
 			if(rs.next()) {
 				String nome = rs.getString("nome");
