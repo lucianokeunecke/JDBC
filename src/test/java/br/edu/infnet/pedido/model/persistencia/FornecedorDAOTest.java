@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 public class FornecedorDAOTest {
 
 	
@@ -26,7 +28,7 @@ public class FornecedorDAOTest {
 	
 	
 	@Test
-	public void test() {
+	public void testInclusao() {
 		IDAO fornecedorDAO = new FornecedorDAO();
 		Fornecedor fornecedor = new Fornecedor("Maquinas Omil", "35.417.536/0001-91", "Rua Dr Getulio Vargas", 3563, "", "Bela Vista", 89140000, "Ibirama");
 		boolean validacao = fornecedorDAO.incluir(fornecedor);
@@ -34,16 +36,16 @@ public class FornecedorDAOTest {
 	}
 	
 	
-	/*@Test
-	public void testUpdate() {
-		IDAO clienteDAO = new ClienteDAO();
-		List<Cliente> lista = clienteDAO.listarTodos();
-		Cliente cliente = new Cliente("Maria das Couves", lista.get(0).getCodigo()); 
-		boolean validacao = clienteDAO.atualizar(cliente);
+	@Test
+	public void testAlteracao() {
+		IDAO fornecedorDAO = new FornecedorDAO();
+		List<Fornecedor> lista = fornecedorDAO.listarTodos();
+		Fornecedor fornecedor = new Fornecedor( lista.get(0).getId(), "Teste Alteração do Fornecedor", "13.219.981/0001-04", "Teste Alteracao do Endereco", 1234, "Teste Alteracao Complemento", "Teste Alteracao Bairro", 12345678, "Teste Alteracao da Cidade");
+		boolean validacao = fornecedorDAO.alterar(fornecedor);
 		Assert.assertTrue(validacao);
 	}
 	
-	@Test
+	/*@Test
 	public void testDelete() {
 		IDAO clienteDAO = new ClienteDAO();
 		List<Cliente> lista = clienteDAO.listarTodos();
