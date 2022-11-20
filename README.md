@@ -8,4 +8,4 @@ Como item entregável, foram desenvolvidas as seguintes classes:
 - FornecedorDAO
 - FornecedorDAOTest
 
-Para a criação da tabela, utilize o arquivo script-ddl.sql
+Para a criação da tabela Fornecedor, utilize o arquivo script-ddl.sql
